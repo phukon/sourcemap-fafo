@@ -20,7 +20,6 @@ function findFunctionInMinifiedCode(functionName) {
         return null;
     };
     
-    // Search through all scripts
     for (const script of scripts) {
         if (script.src) {
           console.log('hit')
@@ -36,7 +35,7 @@ function findFunctionInMinifiedCode(functionName) {
                         }
                 })
                 .catch(error => console.error(`Error fetching ${script.src}:`, error));
-        } else if (script.textContent && isMinified(script.textContent)) {
+        } else if (script.textContent) {
             // For inline scripts
             const result = findInScript(script.textContent);
             if (result) {
@@ -49,4 +48,4 @@ function findFunctionInMinifiedCode(functionName) {
     }
 }
 
-findFunctionInMinifiedCode('ex');
+findFunctionInMinifiedCode('eo');
